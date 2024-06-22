@@ -1,0 +1,13 @@
+## Multistage Dockerfile
+## Stage1: Build stage
+
+FROM node:18-alpine AS installer
+WORKDIR /app
+COPY package*.json ./
+RUN npm install 
+COPY . .
+RUN npm run build
+
+## Stage2: Runtime stage
+FROM nginx:latest AS deployer #Copying the build artifact from stage 1
+COPY --from=installer /app/build /usr/share/nginx/html

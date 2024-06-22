@@ -14,5 +14,5 @@ RUN apk add --no-cache nginx
 
 RUN rm -rf /usr/share/nginx/html/*
 
-COPY build  /usr/share/nginx/html
+COPY .  /usr/share/nginx/html
 

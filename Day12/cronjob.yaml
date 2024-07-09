@@ -1,0 +1,17 @@
+# This will schedule cronjob to run every minute and spin up a container using image busybox and execute command and print out the time , Hello from the Kubernetes cluster message.
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command: ["sh", "-c", "echo '40daysofkubernetes'"]
+          restartPolicy: OnFailure

@@ -1,0 +1,14 @@
+# This job will run a single container using the busybox image to print "Hello, World!" and then exit.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-world
+spec:
+  template:
+    spec:
+      containers:
+      - name: hello
+        image: busybox
+        command: ["echo", "Hello, World!"]
+      restartPolicy: Never
+  backoffLimit: 4

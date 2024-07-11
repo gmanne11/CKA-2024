@@ -1,6 +1,7 @@
 As part of Day 11, We will explore environment variables and multi-container pods in Kubernetes.
 
 𝐓𝐚𝐤𝐞𝐚𝐰𝐚𝐲𝐬:
+
 1️⃣ Pod with Multi-Container
 2️⃣ Sidecar vs. Init Container
 3️⃣ Environment Variables in Kubernetes Pods

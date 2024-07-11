@@ -9,6 +9,7 @@ when deployment manages Rps and Rps manages pods.
 Checkout my blog for detailed explanations. 👇 
 
 𝐓𝐚𝐤𝐞𝐚𝐰𝐚𝐲𝐬: 
+
 1️⃣ Need of service? 
 2️⃣ What does svc do(function)?
 3️⃣ Types of services? 

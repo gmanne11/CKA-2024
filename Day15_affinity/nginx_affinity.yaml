@@ -1,0 +1,23 @@
+#This pod with node affinity set to `requiredDuringSchedulingIgnoredDuringExecution` will only prefer nodes that match the label expression. Then, it will still schedule the pod on the specific node that matches the label are found.
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+              - key: disktype
+                operator: In
+                values:
+                - ssd
+  

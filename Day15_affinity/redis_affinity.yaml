@@ -1,0 +1,24 @@
+# This pod with node affinity set to `requiredDuringSchedulingIgnoredDuringExecution` will select nodes that match the `disktype` label expression.
+# The pod will be scheduled on a node that meets this criterion using the `Exists` operator.
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: redis
+  name: redis
+spec:
+  containers:
+  - image: redis
+    name: redis
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  affinity:
+    nodeAffinity:
+       requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: disktype
+            operator: Exists
+              
+            
+  

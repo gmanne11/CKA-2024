@@ -1,0 +1,25 @@
+#This pod with node affinity set to `preferedDuringSchedulingIgnoredDuringExecution` will only prefer nodes that match the label expression. 
+#If it doesn't match or find, it will still schedule the pod on any of the node.
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: redis-2
+  name: redis-2
+spec:
+  containers:
+  - image: redis
+    name: redis-2
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  affinity:
+    nodeAffinity:
+       preferredDuringSchedulingIgnoredDuringExecution:
+       - weight: 1
+         preference:
+          matchExpressions:
+          - key: disktype
+            operator: In
+            values:
+            - hdd
+  

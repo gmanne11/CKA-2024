@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod-2
+  labels:
+    app.kubernetes.io/name: MyApp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox:1.28
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/config
+    - name: secret-volume
+      mountPath: /etc/secret
+    command: ['sh', '-c', 'echo The application is running && sleep 3600']
+  volumes:
+  - name: config-volume
+    configMap:
+      name: app-cm
+  - name: secret-volume
+    secret:
+      secretName: app-secret

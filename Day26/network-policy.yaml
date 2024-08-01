@@ -1,0 +1,18 @@
+# This NetworkPolicy is applied to the Pod with the label `mysql`, allowing inbound traffic from Pods with the matching label `role: backend` on port 3306.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: db-test
+spec:
+  podSelector:
+    matchLabels:
+      name: mysql
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: backend
+    ports:
+    - port: 3306

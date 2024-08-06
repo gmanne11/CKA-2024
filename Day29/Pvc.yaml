@@ -1,0 +1,12 @@
+# This creates pvc which requests resources of 500Mi from available 1GB of storage from PV
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-demo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 256Mi
+  storageClassName: ""  # Empty string value for the storage class

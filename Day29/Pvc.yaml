@@ -5,8 +5,7 @@ metadata:
   name: pvc-demo
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 256Mi
-  storageClassName: ""  # Empty string value for the storage class

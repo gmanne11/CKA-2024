@@ -4,8 +4,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: pvc-demo
 spec:
+  volumeName: pv-demo
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 256Mi

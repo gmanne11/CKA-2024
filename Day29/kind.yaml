@@ -1,0 +1,14 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+networking:
+  disableDefaultCNI: false
+nodes:
+  - role: control-plane
+    extraPortMappings:
+    - containerPort: 30008
+      hostPort: 30008
+    extraMounts:
+    - hostPath: /Users/vivekmanne/work/foo
+      containerPath: /foo
+  - role: worker
+  - role: worker

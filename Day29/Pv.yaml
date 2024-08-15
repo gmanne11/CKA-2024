@@ -7,9 +7,10 @@ metadata:
   labels:
     type: local 
 spec:
+  storageClassName: standard
   capacity:
     storage: 512Mi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   hostPath:
-    path: "/data/config"
+    path: "/foo" 

@@ -33,6 +33,6 @@ kubectl apply -f k8s/service.yaml
 kubectl apply -f k8s/ingress.yaml
 ```
 
-
+For additional information and clear explanations follow the article: https://vivekmanne.hashnode.dev/day-3340-days-of-k8s-ingress-in-kubernetes
 
 
